@@ -8,7 +8,6 @@ var rttc = require('rttc');
 var escapeHtmlEntitiesDeep = require('../sails/lib/hooks/views/escape-html-entities-deep');
 var minifiedUnescapeHtmlEntitiesDeepLiteStr = require('../sails/lib/hooks/views/unescape-html-entities-deep-lite.min.string.js');
 
-
 /**
  * htmlScriptify()
  *
