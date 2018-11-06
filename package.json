@@ -1,0 +1,10 @@
+{
+    "name": "@mycoolhooks/sails-hook-sockets",
+    "version": "0.0.0",
+    "description": "my own sockets hook",
+    "main": "index.js",
+    "sails": {
+      "isHook": true,
+      "hookName": "sockets"
+    }
+}
