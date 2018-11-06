@@ -10,3 +10,9 @@ exposeLocalsToBrowser({
     raw: true
 });
 ````
+
+#Installation
+
+```
+npm install dev2games/sails-hook-html-scriptify --save
+```
