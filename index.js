@@ -122,6 +122,23 @@ module.exports = function htmlScriptify(options){
   else {
     options.dontUnescapeOnClient = false;
   }//>-
+  
+  // Verify `raw` flag, if provided (or use default)
+  //
+  // > If special backwards-compatible support for older browsers is needed, or any
+  // > other customizations to the client-side escaping code are necessary, then
+  // > the built-in client-side escaping can be disabled using `dontUnescapeOnClient: true`.
+  if (!_.isUndefined(options.raw)) {
+    try {
+      options.raw = rttc.validate('boolean', options.raw);
+    } catch (e) {
+      if (e.code === 'E_INVALID') { throw new Error('Usage: If provided, `raw` should be either `true` or `false`'); }
+      else { throw e; }
+    }
+  }
+  else {
+    options.raw = false;
+  }//>-
 
   // console.log('options.data',options.data);
   // console.log('_.keys(options.data)',_.keys(options.data));
@@ -143,6 +160,12 @@ module.exports = function htmlScriptify(options){
   //
   // Build and return HTML to inject.
   var html = '<script type="text/javascript">';
+  
+  // If the raw parameter is passed, then remove the script tag
+  
+  if (options.raw)
+    html = '';
+  
   html += ' (function (){ ';
 
   // By default, we inject client-side code to perform unescaping.
@@ -197,7 +220,11 @@ module.exports = function htmlScriptify(options){
   });
   html += ' }; ';
   html += ' })(); ';
-  html += '</script>';
+  
+  // If the raw parameter is not set to true, then let's add the closing script tag
+  
+  if (!options.raw)
+    html += '</script>';
 
   return html;
 
