@@ -46,6 +46,7 @@ var minifiedUnescapeHtmlEntitiesDeepLiteStr = require('../../sails/lib/hooks/vie
  * Example usage:  (`sails console`)
  * sails> sails.hooks.views.htmlScriptify({data: {n: 'stuff<script>'}, dontUnescapeOnClient: true})
  */
+
 module.exports = function htmlScriptify(options){
 
   //  ██╗   ██╗ █████╗ ██╗     ██╗██████╗  █████╗ ████████╗███████╗    ██╗   ██╗███████╗ █████╗  ██████╗ ███████╗
