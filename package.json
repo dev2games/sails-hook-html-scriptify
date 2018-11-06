@@ -1,10 +1,10 @@
 {
-    "name": "@mycoolhooks/sails-hook-sockets",
+    "name": "@dev2games/sails-hook-html-scriptify",
     "version": "0.0.0",
-    "description": "my own sockets hook",
+    "description": "Modified sails hook for html-scriptify",
     "main": "index.js",
     "sails": {
       "isHook": true,
-      "hookName": "sockets"
+      "hookName": "htmlScriptify"
     }
 }
